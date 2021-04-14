@@ -14,9 +14,9 @@ class Room
         @people.keys.each_with_index do |person, index|
             (index + 1...@people.length).each do |index_2|
                 i = 0
-                until i >= @people[@people.keys[index]].length - 2
+                until i >= @people[@people.keys[index]].length - 1
                     j = 0
-                    until j >=  @people[@people.keys[index_2]].length - 2
+                    until j >=  @people[@people.keys[index_2]].length - 1
 
                         my_entrance = @people[@people.keys[index]][i]
                         my_exit = @people[@people.keys[index]][i + 1]
@@ -35,6 +35,8 @@ class Room
                             else
                                 combined_times["#{person} and #{@people.keys[index_2]}"] << []
                             end
+                        else
+                            combined_times["#{person} and #{@people.keys[index_2]}"] << []
                         end
                         j += 2
                     end
