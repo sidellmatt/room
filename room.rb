@@ -8,7 +8,7 @@ class Room
         @people = Hash.new { |h, k| h[k] = [] }
     end
 
-    def find_common_times ##check this is working properly
+    def find_common_times
         combined_times = Hash.new { |h, k| h[k] = [] }
 
         @people.keys.each_with_index do |person, index|
