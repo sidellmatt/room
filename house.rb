@@ -12,20 +12,20 @@ class House
     end
 
     def populate
-        times = (0..2359).to_a
+        times = (0..23).to_a
         @people.each do |person|
             @rooms.each do |room|
                 entrance_time = 0
                 exit_time = 0
-                can_visit_again = exit_time < 2359
+                can_visit_again = exit_time < 23
                 until !can_visit_again
                     if can_visit_again
-                        entrance_time = (exit_time..2359).to_a.sample
-                        exit_time = (entrance_time + 1..2400).to_a.sample
+                        entrance_time = (exit_time..23).to_a.sample
+                        exit_time = (entrance_time + 1..24).to_a.sample
 
                         person.enter_room(room, entrance_time)
                         person.exit_room(exit_time)
-                        can_visit_again = exit_time < 2359
+                        can_visit_again = exit_time < 23
                     end
                 end
             end
